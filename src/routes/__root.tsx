@@ -4,9 +4,11 @@ import "../index.css";
 import Sidebar from "@/shared/components/Sidebar";
 
 const RootLayout = () => (
-  <main className="flex h-full  bg-black">
+  <main className="flex h-full  bg-white">
     <Sidebar />
-    <Outlet />
+    <div className="bg-zinc-100 w-full h-full">
+      <Outlet />
+    </div>
     <TanStackRouterDevtools />
   </main>
 );
