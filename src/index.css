@@ -3,8 +3,12 @@
 
 @custom-variant dark (&:is(.dark *));
 
-body {
+body,
+html,
+#root {
   font-family: "Rubik", sans-serif;
+  height: 100%;
+  width: 100%;
 }
 
 @theme inline {
