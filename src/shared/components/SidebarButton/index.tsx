@@ -14,9 +14,9 @@ export default function SidebarButton({
   return (
     <Link
       to={url}
-      className={`flex items-stretch px-8 [&.active]:font-bold border-l-4 [&.active]:border-secondary group ${className}`}
+      className={`flex px-8 [&.active]:font-bold border-l-4 border-transparent [&.active]:border-secondary group ${className}`}
     >
-      <div className="flex py-4 pl-8 rounded-lg flex-1 group-[.active]:bg-secondary group-[.active]:text-white h-full w-full ml-8">
+      <div className="flex py-4 px-8 rounded-lg group-[.active]:bg-secondary group-[.active]:text-white h-full w-full ml-8">
         {title}
       </div>
     </Link>
