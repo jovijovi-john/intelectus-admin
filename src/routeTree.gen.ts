@@ -11,10 +11,14 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as UsersIndexRouteImport } from './routes/users/index'
+import { Route as ThemesIndexRouteImport } from './routes/themes/index'
 import { Route as SettingsIndexRouteImport } from './routes/settings/index'
 import { Route as QuizzesIndexRouteImport } from './routes/quizzes/index'
 import { Route as QuestionsIndexRouteImport } from './routes/questions/index'
+import { Route as QuestionBankIndexRouteImport } from './routes/question-bank/index'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard/index'
+import { Route as CategorysIndexRouteImport } from './routes/categorys/index'
+import { Route as CalendarIndexRouteImport } from './routes/calendar/index'
 import { Route as authSignUpIndexRouteImport } from './routes/(auth)/sign-up/index'
 import { Route as authSignOutIndexRouteImport } from './routes/(auth)/sign-out/index'
 import { Route as authSignInIndexRouteImport } from './routes/(auth)/sign-in/index'
@@ -27,6 +31,11 @@ const IndexRoute = IndexRouteImport.update({
 const UsersIndexRoute = UsersIndexRouteImport.update({
   id: '/users/',
   path: '/users/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ThemesIndexRoute = ThemesIndexRouteImport.update({
+  id: '/themes/',
+  path: '/themes/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SettingsIndexRoute = SettingsIndexRouteImport.update({
@@ -44,9 +53,24 @@ const QuestionsIndexRoute = QuestionsIndexRouteImport.update({
   path: '/questions/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const QuestionBankIndexRoute = QuestionBankIndexRouteImport.update({
+  id: '/question-bank/',
+  path: '/question-bank/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DashboardIndexRoute = DashboardIndexRouteImport.update({
   id: '/dashboard/',
   path: '/dashboard/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CategorysIndexRoute = CategorysIndexRouteImport.update({
+  id: '/categorys/',
+  path: '/categorys/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CalendarIndexRoute = CalendarIndexRouteImport.update({
+  id: '/calendar/',
+  path: '/calendar/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const authSignUpIndexRoute = authSignUpIndexRouteImport.update({
@@ -67,10 +91,14 @@ const authSignInIndexRoute = authSignInIndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/calendar': typeof CalendarIndexRoute
+  '/categorys': typeof CategorysIndexRoute
   '/dashboard': typeof DashboardIndexRoute
+  '/question-bank': typeof QuestionBankIndexRoute
   '/questions': typeof QuestionsIndexRoute
   '/quizzes': typeof QuizzesIndexRoute
   '/settings': typeof SettingsIndexRoute
+  '/themes': typeof ThemesIndexRoute
   '/users': typeof UsersIndexRoute
   '/sign-in': typeof authSignInIndexRoute
   '/sign-out': typeof authSignOutIndexRoute
@@ -78,10 +106,14 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/calendar': typeof CalendarIndexRoute
+  '/categorys': typeof CategorysIndexRoute
   '/dashboard': typeof DashboardIndexRoute
+  '/question-bank': typeof QuestionBankIndexRoute
   '/questions': typeof QuestionsIndexRoute
   '/quizzes': typeof QuizzesIndexRoute
   '/settings': typeof SettingsIndexRoute
+  '/themes': typeof ThemesIndexRoute
   '/users': typeof UsersIndexRoute
   '/sign-in': typeof authSignInIndexRoute
   '/sign-out': typeof authSignOutIndexRoute
@@ -90,10 +122,14 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/calendar/': typeof CalendarIndexRoute
+  '/categorys/': typeof CategorysIndexRoute
   '/dashboard/': typeof DashboardIndexRoute
+  '/question-bank/': typeof QuestionBankIndexRoute
   '/questions/': typeof QuestionsIndexRoute
   '/quizzes/': typeof QuizzesIndexRoute
   '/settings/': typeof SettingsIndexRoute
+  '/themes/': typeof ThemesIndexRoute
   '/users/': typeof UsersIndexRoute
   '/(auth)/sign-in/': typeof authSignInIndexRoute
   '/(auth)/sign-out/': typeof authSignOutIndexRoute
@@ -103,10 +139,14 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/calendar'
+    | '/categorys'
     | '/dashboard'
+    | '/question-bank'
     | '/questions'
     | '/quizzes'
     | '/settings'
+    | '/themes'
     | '/users'
     | '/sign-in'
     | '/sign-out'
@@ -114,10 +154,14 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/calendar'
+    | '/categorys'
     | '/dashboard'
+    | '/question-bank'
     | '/questions'
     | '/quizzes'
     | '/settings'
+    | '/themes'
     | '/users'
     | '/sign-in'
     | '/sign-out'
@@ -125,10 +169,14 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/calendar/'
+    | '/categorys/'
     | '/dashboard/'
+    | '/question-bank/'
     | '/questions/'
     | '/quizzes/'
     | '/settings/'
+    | '/themes/'
     | '/users/'
     | '/(auth)/sign-in/'
     | '/(auth)/sign-out/'
@@ -137,10 +185,14 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CalendarIndexRoute: typeof CalendarIndexRoute
+  CategorysIndexRoute: typeof CategorysIndexRoute
   DashboardIndexRoute: typeof DashboardIndexRoute
+  QuestionBankIndexRoute: typeof QuestionBankIndexRoute
   QuestionsIndexRoute: typeof QuestionsIndexRoute
   QuizzesIndexRoute: typeof QuizzesIndexRoute
   SettingsIndexRoute: typeof SettingsIndexRoute
+  ThemesIndexRoute: typeof ThemesIndexRoute
   UsersIndexRoute: typeof UsersIndexRoute
   authSignInIndexRoute: typeof authSignInIndexRoute
   authSignOutIndexRoute: typeof authSignOutIndexRoute
@@ -161,6 +213,13 @@ declare module '@tanstack/react-router' {
       path: '/users'
       fullPath: '/users'
       preLoaderRoute: typeof UsersIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/themes/': {
+      id: '/themes/'
+      path: '/themes'
+      fullPath: '/themes'
+      preLoaderRoute: typeof ThemesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/settings/': {
@@ -184,11 +243,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof QuestionsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/question-bank/': {
+      id: '/question-bank/'
+      path: '/question-bank'
+      fullPath: '/question-bank'
+      preLoaderRoute: typeof QuestionBankIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/dashboard/': {
       id: '/dashboard/'
       path: '/dashboard'
       fullPath: '/dashboard'
       preLoaderRoute: typeof DashboardIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/categorys/': {
+      id: '/categorys/'
+      path: '/categorys'
+      fullPath: '/categorys'
+      preLoaderRoute: typeof CategorysIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/calendar/': {
+      id: '/calendar/'
+      path: '/calendar'
+      fullPath: '/calendar'
+      preLoaderRoute: typeof CalendarIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/(auth)/sign-up/': {
@@ -217,10 +297,14 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CalendarIndexRoute: CalendarIndexRoute,
+  CategorysIndexRoute: CategorysIndexRoute,
   DashboardIndexRoute: DashboardIndexRoute,
+  QuestionBankIndexRoute: QuestionBankIndexRoute,
   QuestionsIndexRoute: QuestionsIndexRoute,
   QuizzesIndexRoute: QuizzesIndexRoute,
   SettingsIndexRoute: SettingsIndexRoute,
+  ThemesIndexRoute: ThemesIndexRoute,
   UsersIndexRoute: UsersIndexRoute,
   authSignInIndexRoute: authSignInIndexRoute,
   authSignOutIndexRoute: authSignOutIndexRoute,

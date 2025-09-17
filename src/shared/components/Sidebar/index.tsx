@@ -1,16 +1,12 @@
-import { Link } from "@tanstack/react-router";
-import SidebarButton from "../SidebarButton";
+import SidebarIcons from "../SidebarIcons";
 
 export default function Sidebar() {
   return (
-    <aside className="flex flex-col h-full w-full max-w-[264px]">
-      <SidebarButton url="/dashboard" title="Dashboard" />
-      <SidebarButton url="/sign-in" title="Sign-in" />
-      <SidebarButton url="/sign-up" title="Sign-up" />
-      <SidebarButton url="/questions" title="Questions" />
-      <SidebarButton url="/quizzes" title="Quizzes" />
-      <SidebarButton url="/users" title="Users" />
-      <SidebarButton url="/settings" title="Settings" className="mt-auto" />
+    <aside className="flex flex-col h-full w-full max-w-[300px] pb-8">
+      <h1 className="text-secondary py-8 font-semibold text-2xl text-center w-full border-b-2 mb-8 border-b-prim">
+        Intelectus
+      </h1>
+      <SidebarIcons />
     </aside>
   );
 }
