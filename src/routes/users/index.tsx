@@ -1,7 +1,7 @@
 import type { User } from "@/features/users/user.types";
 import { useUsersColumns } from "@/features/users/users.columns";
 import { useUsers } from "@/features/users/use-users";
-import { DataTable } from "@/shared/components/table";
+import { DataTable } from "@/shared/components/Table";
 import { Button } from "@/shared/shadcn/components/ui/button";
 import { createFileRoute } from "@tanstack/react-router";
 import { getCoreRowModel, useReactTable } from "@tanstack/react-table";

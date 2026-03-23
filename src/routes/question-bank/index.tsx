@@ -1,7 +1,7 @@
 import type { QuestionBankItem } from "@/features/question-bank/question-bank.types";
 import { useQuestionBankColumns } from "@/features/question-bank/question-bank.columns";
 import { useQuestionBank } from "@/features/question-bank/use-question-bank";
-import { DataTable } from "@/shared/components/table";
+import { DataTable } from "@/shared/components/Table";
 import { Button } from "@/shared/shadcn/components/ui/button";
 import { createFileRoute } from "@tanstack/react-router";
 import { getCoreRowModel, useReactTable } from "@tanstack/react-table";
@@ -76,7 +76,9 @@ function RouteComponent() {
 
   return (
     <div className="p-8 space-y-4">
-      <h1 className="text-2xl font-semibold text-zinc-900">Banco de questões</h1>
+      <h1 className="text-2xl font-semibold text-zinc-900">
+        Banco de questões
+      </h1>
       <QuestionBankTable items={data} />
     </div>
   );

@@ -1,7 +1,7 @@
 import type { ColumnDef } from "@tanstack/react-table";
 import { useMemo } from "react";
 
-import { DataTableRowActions } from "@/shared/components/table";
+import { DataTableRowActions } from "@/shared/components/Table";
 
 import type { Theme } from "./theme.types";
 
@@ -11,7 +11,7 @@ export type ThemesColumnHandlers = {
 };
 
 export function useThemesColumns(
-  handlers: ThemesColumnHandlers
+  handlers: ThemesColumnHandlers,
 ): ColumnDef<Theme>[] {
   const { onEdit, onDelete } = handlers;
   return useMemo(
@@ -34,9 +34,7 @@ export function useThemesColumns(
       },
       {
         id: "actions",
-        header: () => (
-          <span className="block w-full text-center">Ações</span>
-        ),
+        header: () => <span className="block w-full text-center">Ações</span>,
         cell: ({ row }) => (
           <DataTableRowActions
             onEdit={() => onEdit(row.original)}
@@ -45,6 +43,6 @@ export function useThemesColumns(
         ),
       },
     ],
-    [onEdit, onDelete]
+    [onEdit, onDelete],
   );
 }

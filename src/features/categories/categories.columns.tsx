@@ -1,7 +1,7 @@
 import type { ColumnDef } from "@tanstack/react-table";
 import { useMemo } from "react";
 
-import { DataTableRowActions } from "@/shared/components/table";
+import { DataTableRowActions } from "@/shared/components/Table";
 
 import type { Category } from "./category.types";
 
@@ -11,7 +11,7 @@ export type CategoriesColumnHandlers = {
 };
 
 export function useCategoriesColumns(
-  handlers: CategoriesColumnHandlers
+  handlers: CategoriesColumnHandlers,
 ): ColumnDef<Category>[] {
   const { onEdit, onDelete } = handlers;
   return useMemo(
@@ -29,9 +29,7 @@ export function useCategoriesColumns(
       },
       {
         id: "actions",
-        header: () => (
-          <span className="block w-full text-center">Ações</span>
-        ),
+        header: () => <span className="block w-full text-center">Ações</span>,
         cell: ({ row }) => (
           <DataTableRowActions
             onEdit={() => onEdit(row.original)}
@@ -40,6 +38,6 @@ export function useCategoriesColumns(
         ),
       },
     ],
-    [onEdit, onDelete]
+    [onEdit, onDelete],
   );
 }

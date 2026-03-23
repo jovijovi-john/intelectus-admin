@@ -2,7 +2,7 @@ import type { ColumnDef } from "@tanstack/react-table";
 import { useMemo } from "react";
 
 import { ActiveBadge } from "@/shared/components/ActiveBadge";
-import { DataTableRowActions } from "@/shared/components/table";
+import { DataTableRowActions } from "@/shared/components/Table";
 
 import { QuestionBloomBadge } from "./question-bloom-badge";
 import type { Question, QuestionLanguage } from "./question.types";

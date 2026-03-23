@@ -1,7 +1,7 @@
 import type { ColumnDef } from "@tanstack/react-table";
 import { useMemo } from "react";
 
-import { DataTableRowActions } from "@/shared/components/table";
+import { DataTableRowActions } from "@/shared/components/Table";
 
 import type { QuestionBankItem } from "./question-bank.types";
 
@@ -11,7 +11,7 @@ export type QuestionBankColumnHandlers = {
 };
 
 export function useQuestionBankColumns(
-  handlers: QuestionBankColumnHandlers
+  handlers: QuestionBankColumnHandlers,
 ): ColumnDef<QuestionBankItem>[] {
   const { onEdit, onDelete } = handlers;
   return useMemo(
@@ -40,9 +40,7 @@ export function useQuestionBankColumns(
       },
       {
         id: "actions",
-        header: () => (
-          <span className="block w-full text-center">Ações</span>
-        ),
+        header: () => <span className="block w-full text-center">Ações</span>,
         cell: ({ row }) => (
           <DataTableRowActions
             onEdit={() => onEdit(row.original)}
@@ -51,6 +49,6 @@ export function useQuestionBankColumns(
         ),
       },
     ],
-    [onEdit, onDelete]
+    [onEdit, onDelete],
   );
 }

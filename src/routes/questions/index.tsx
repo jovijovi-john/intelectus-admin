@@ -1,7 +1,7 @@
 import type { Question } from "@/features/questions/question.types";
 import { useQuestionsColumns } from "@/features/questions/questions.columns";
 import { useQuestions } from "@/features/questions/use-questions";
-import { DataTable } from "@/shared/components/table";
+import { DataTable } from "@/shared/components/Table";
 import { Button } from "@/shared/shadcn/components/ui/button";
 import { createFileRoute } from "@tanstack/react-router";
 import { getCoreRowModel, useReactTable } from "@tanstack/react-table";

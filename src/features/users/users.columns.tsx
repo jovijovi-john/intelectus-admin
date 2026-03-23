@@ -1,7 +1,7 @@
 import type { ColumnDef } from "@tanstack/react-table";
 import { useMemo } from "react";
 
-import { DataTableRowActions } from "@/shared/components/table";
+import { DataTableRowActions } from "@/shared/components/Table";
 
 import { UserPlanBadge } from "./user-plan-badge";
 import type { User } from "./user.types";
@@ -28,7 +28,7 @@ function formatBirthDate(iso: string): string {
 }
 
 export function useUsersColumns(
-  handlers: UsersColumnHandlers
+  handlers: UsersColumnHandlers,
 ): ColumnDef<User>[] {
   const { onEdit, onDelete } = handlers;
   return useMemo(
@@ -53,9 +53,7 @@ export function useUsersColumns(
       },
       {
         id: "actions",
-        header: () => (
-          <span className="block w-full text-center">Ações</span>
-        ),
+        header: () => <span className="block w-full text-center">Ações</span>,
         cell: ({ row }) => (
           <DataTableRowActions
             onEdit={() => onEdit(row.original)}
@@ -64,6 +62,6 @@ export function useUsersColumns(
         ),
       },
     ],
-    [onEdit, onDelete]
+    [onEdit, onDelete],
   );
 }

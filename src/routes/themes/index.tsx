@@ -1,7 +1,7 @@
 import type { Theme } from "@/features/themes/theme.types";
 import { useThemesColumns } from "@/features/themes/themes.columns";
 import { useThemes } from "@/features/themes/use-themes";
-import { DataTable } from "@/shared/components/table";
+import { DataTable } from "@/shared/components/Table";
 import { Button } from "@/shared/shadcn/components/ui/button";
 import { createFileRoute } from "@tanstack/react-router";
 import { getCoreRowModel, useReactTable } from "@tanstack/react-table";

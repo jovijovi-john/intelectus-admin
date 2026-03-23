@@ -1,7 +1,7 @@
 import type { Category } from "@/features/categories/category.types";
 import { useCategoriesColumns } from "@/features/categories/categories.columns";
 import { useCategories } from "@/features/categories/use-categories";
-import { DataTable } from "@/shared/components/table";
+import { DataTable } from "@/shared/components/Table";
 import { Button } from "@/shared/shadcn/components/ui/button";
 import { createFileRoute } from "@tanstack/react-router";
 import { getCoreRowModel, useReactTable } from "@tanstack/react-table";
@@ -38,7 +38,9 @@ function RouteComponent() {
           className="rounded-lg border border-red-200 bg-red-50 p-6 text-red-900"
           role="alert"
         >
-          <p className="font-medium">Não foi possível carregar as categorias.</p>
+          <p className="font-medium">
+            Não foi possível carregar as categorias.
+          </p>
           <p className="mt-1 text-sm text-red-800">
             {error instanceof Error ? error.message : "Erro desconhecido."}
           </p>

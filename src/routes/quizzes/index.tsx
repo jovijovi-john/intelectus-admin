@@ -1,7 +1,7 @@
 import type { Quiz } from "@/features/quizzes/quiz.types";
 import { useQuizzesColumns } from "@/features/quizzes/quizzes.columns";
 import { useQuizzes } from "@/features/quizzes/use-quizzes";
-import { DataTable } from "@/shared/components/table";
+import { DataTable } from "@/shared/components/Table";
 import { Button } from "@/shared/shadcn/components/ui/button";
 import { createFileRoute } from "@tanstack/react-router";
 import { getCoreRowModel, useReactTable } from "@tanstack/react-table";

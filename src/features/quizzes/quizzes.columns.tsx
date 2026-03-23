@@ -2,7 +2,7 @@ import type { ColumnDef } from "@tanstack/react-table";
 import { useMemo } from "react";
 
 import { ActiveBadge } from "@/shared/components/ActiveBadge";
-import { DataTableRowActions } from "@/shared/components/table";
+import { DataTableRowActions } from "@/shared/components/Table";
 
 import type { Quiz } from "./quiz.types";
 
@@ -21,7 +21,7 @@ function formatDateTime(iso: string): string {
 }
 
 export function useQuizzesColumns(
-  handlers: QuizzesColumnHandlers
+  handlers: QuizzesColumnHandlers,
 ): ColumnDef<Quiz>[] {
   const { onEdit, onDelete } = handlers;
   return useMemo(
@@ -67,9 +67,7 @@ export function useQuizzesColumns(
       },
       {
         id: "actions",
-        header: () => (
-          <span className="block w-full text-center">Ações</span>
-        ),
+        header: () => <span className="block w-full text-center">Ações</span>,
         cell: ({ row }) => (
           <DataTableRowActions
             onEdit={() => onEdit(row.original)}
@@ -78,6 +76,6 @@ export function useQuizzesColumns(
         ),
       },
     ],
-    [onEdit, onDelete]
+    [onEdit, onDelete],
   );
 }
