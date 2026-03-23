@@ -13,7 +13,7 @@ import {
 
 export default function SidebarIcons() {
   return (
-    <div className="flex flex-col gap-y-4 h-full w-full">
+    <div className="flex min-h-0 flex-1 flex-col gap-y-4 w-full">
       <SidebarButton
         Icon={ChartNoAxesCombined}
         to="/dashboard"
