@@ -8,6 +8,7 @@ function Sidebar() {
       <header className="shrink-0 border-b border-border px-5 pb-8 pt-4 mb-8">
         <BrandLogo />
       </header>
+
       <SidebarIcons />
     </aside>
   );
