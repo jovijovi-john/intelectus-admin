@@ -1,27 +1,15 @@
+import { ANESTHESIOLOGY_THEME_SEEDS } from "@/shared/data/anesthesiology-catalog";
+
 import type { Theme } from "./theme.types";
 
-const MOCK_THEMES: Theme[] = [
-  {
-    id: 1,
-    name: "Matemática aplicada",
-    description:
-      "Tema focado em problemas de matemática do cotidiano e modelagem básica.",
-    categories: ["r1", "r2", "r3"],
-  },
-  {
-    id: 2,
-    name: "Leitura e interpretação",
-    description:
-      "Compreensão textual, inferência e análise de gêneros variados.",
-    categories: ["r1", "r4"],
-  },
-  {
-    id: 3,
-    name: "Ciências da natureza",
-    description: "Biologia, química e física em nível médio.",
-    categories: ["r2", "r3", "r5", "r6"],
-  },
-];
+const MOCK_THEMES: Theme[] = ANESTHESIOLOGY_THEME_SEEDS.map((t, i) => ({
+  id: t.id,
+  name: t.name,
+  description: t.description,
+  categories: [...t.categories],
+  active: i % 4 !== 2,
+  questionCount: 8 + i * 6 + (i % 3) * 2,
+}));
 
 const MOCK_DELAY_MS = 400;
 

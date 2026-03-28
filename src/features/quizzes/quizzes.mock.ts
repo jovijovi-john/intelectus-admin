@@ -1,56 +1,80 @@
+import { QUESTION_BANK_LABELS } from "@/shared/data/anesthesiology-catalog";
+
 import type { Quiz } from "./quiz.types";
+
+const [BANK_INTELLECTUS, BANK_SBA, BANK_INSTITUCIONAL] = QUESTION_BANK_LABELS;
 
 const MOCK_QUIZZES: Quiz[] = [
   {
     id: "1",
-    title: "Simulado ENEM — 1ª edição",
+    title: "Simulado SBA — bloco cardiocirculatório e vasoativos",
     description:
-      "Prova completa com tempo de 5h30, todas as áreas do conhecimento e redação.",
-    createdAt: "2024-01-10T08:00:00.000Z",
-    createdBy: "Ana Silva",
-    questionBanks: ["Prova anual", "Intelectus"],
-    categories: ["Redação", "Matemática", "Ciências da natureza"],
+      "Questões objetivas sobre débito cardíaco, hemodinâmica e uso de inotrópicos e vasopressores (Pontos 9 e 9.8).",
+    createdAt: "2026-01-10T08:00:00.000Z",
+    createdBy: "Dra. Ana Silva",
+    questionBanks: [BANK_SBA, BANK_INTELLECTUS],
+    themes: [
+      "Ponto 9 — Cardiocirculatório: débito e hemodinâmica",
+      "Ponto 9.8 — Inotrópicos e vasopressores",
+    ],
+    categories: ["R2", "R3"],
     active: true,
   },
   {
     id: "2",
-    title: "Simulado foco: Matemática e suas tecnologias",
+    title: "Simulado: mecânica respiratória e farmacologia pulmonar",
     description:
-      "Questões objetivas com ênfase em funções, geometria e estatística.",
-    createdAt: "2024-02-05T14:00:00.000Z",
-    createdBy: "Bruno Costa",
-    questionBanks: ["Intelectus"],
-    categories: ["Matemática"],
+      "Ênfase em ventilação, complacência e agentes broncodilatadores (Ponto 10).",
+    createdAt: "2026-02-05T14:00:00.000Z",
+    createdBy: "Dr. Bruno Costa",
+    questionBanks: [BANK_INTELLECTUS],
+    themes: ["Ponto 10 — Mecânica e ventilação pulmonar"],
+    categories: ["R1", "R2"],
     active: true,
   },
   {
     id: "3",
-    title: "Simulado Ciências da natureza",
-    description: "Biologia, química e física em formato ENEM.",
-    createdAt: "2024-02-28T11:30:00.000Z",
-    createdBy: "Carla Mendes",
-    questionBanks: ["Prova anual"],
-    categories: ["Ciências da natureza"],
+    title: "Simulado TEA/TSA — bases farmacológicas",
+    description:
+      "Farmacologia geral aplicada à anestesia e introdução a anestésicos venosos (Pontos 11 e 12).",
+    createdAt: "2026-02-28T11:30:00.000Z",
+    createdBy: "Dra. Carla Mendes",
+    questionBanks: [BANK_SBA],
+    themes: [
+      "Ponto 11 — Farmacologia geral",
+      "Ponto 12 — Anestésicos venosos e opioides",
+    ],
+    categories: ["TEA/TSA", "R1"],
     active: false,
   },
   {
     id: "4",
-    title: "Simulado Linguagens — segunda língua",
-    description: "Inglês e Espanhol com interpretação de texto.",
-    createdAt: "2024-03-15T09:45:00.000Z",
-    createdBy: "Elena Ferreira",
-    questionBanks: ["Prova anual", "Intelectus"],
-    categories: ["Linguagens e códigos", "Inglês", "Espanhol"],
+    title: "Simulado inalatórios, MAC e anestésicos locais",
+    description:
+      "Cobertura dos Pontos 13 e 14: agentes inalatórios, CAM e toxicidade de locais.",
+    createdAt: "2026-03-15T09:45:00.000Z",
+    createdBy: "Dra. Elena Ferreira",
+    questionBanks: [BANK_INTELLECTUS, BANK_INSTITUCIONAL],
+    themes: [
+      "Ponto 13 — Anestésicos inalatórios e CAM (MAC)",
+      "Ponto 14 — Anestésicos locais e bloqueios",
+    ],
+    categories: ["R2", "R3"],
     active: true,
   },
   {
     id: "5",
-    title: "Simulado Ciências humanas integrado",
-    description: "História, geografia, filosofia e sociologia.",
-    createdAt: "2024-04-01T16:00:00.000Z",
-    createdBy: "Daniel Oliveira",
-    questionBanks: ["Intelectus"],
-    categories: ["Ciências humanas", "Atualidades"],
+    title: "Simulado integrado — SNC, autônomo e monitorização",
+    description:
+      "Revisão do Ponto 8 e integração com cenários clínicos de instabilidade hemodinâmica.",
+    createdAt: "2026-04-01T16:00:00.000Z",
+    createdBy: "Dr. Daniel Oliveira",
+    questionBanks: [BANK_INSTITUCIONAL],
+    themes: [
+      "Ponto 8 — SNC e sistema nervoso autônomo",
+      "Ponto 9 — Cardiocirculatório: débito e hemodinâmica",
+    ],
+    categories: ["R1", "R2", "TEA/TSA"],
     active: false,
   },
 ];

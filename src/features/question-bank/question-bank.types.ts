@@ -1,5 +1,5 @@
 export interface QuestionBankItem {
-  id: number;
+  nome: string;
   description: string;
   referenceYear: number;
   startYear: number;

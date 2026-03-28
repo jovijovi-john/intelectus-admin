@@ -7,13 +7,13 @@ import type {
 const MOCK_DELAY_MS = 2000;
 
 const MONTHLY_TEMPLATES: Omit<CalendarMonthApiItem, "date">[] = [
-  { id: "sim-1", type: "simulado", label: "Simulado ENEM" },
-  { id: "q-1", type: "questao", label: "20 questões de matemática" },
-  { id: "q-2", type: "questao", label: "Revisão de português" },
-  { id: "sim-2", type: "simulado", label: "Simulado Fuvest" },
-  { id: "q-3", type: "questao", label: "Lista de física" },
-  { id: "q-4", type: "questao", label: "Questões de química" },
-  { id: "sim-3", type: "simulado", label: "Simulado Unicamp" },
+  { id: "sim-1", type: "simulado", label: "Simulado SBA — bloco cardio e vasoativos" },
+  { id: "q-1", type: "questao", label: "Lista: 20 questões — mecânica respiratória" },
+  { id: "q-2", type: "questao", label: "Revisão: anestésicos inalatórios e CAM" },
+  { id: "sim-2", type: "simulado", label: "Simulado integrado — SNC e monitorização" },
+  { id: "q-3", type: "questao", label: "Lista: farmacologia de opioides e TIVA" },
+  { id: "q-4", type: "questao", label: "Questões: anestésicos locais e bloqueios" },
+  { id: "sim-3", type: "simulado", label: "Simulado TEA/TSA — farmacologia geral" },
 ];
 
 const DAYS = [3, 7, 7, 12, 12, 12, 19];

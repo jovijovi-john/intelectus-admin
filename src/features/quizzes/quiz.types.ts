@@ -5,8 +5,10 @@ export interface Quiz {
   /** ISO 8601 */
   createdAt: string;
   createdBy: string;
-  /** Nomes dos bancos de questões vinculados (ex.: Prova anual, Intelectus) */
+  /** Nomes dos bancos de questões vinculados (ex.: Prova anual SBA (revisão)) */
   questionBanks: string[];
+  /** Temas programáticos vinculados (ex.: pontos do programa). */
+  themes: string[];
   categories: string[];
   active: boolean;
 }

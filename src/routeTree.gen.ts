@@ -9,69 +9,80 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ShellRouteRouteImport } from './routes/_shell/route'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as UsersIndexRouteImport } from './routes/users/index'
-import { Route as ThemesIndexRouteImport } from './routes/themes/index'
-import { Route as SettingsIndexRouteImport } from './routes/settings/index'
-import { Route as QuizzesIndexRouteImport } from './routes/quizzes/index'
-import { Route as QuestionsIndexRouteImport } from './routes/questions/index'
-import { Route as QuestionBankIndexRouteImport } from './routes/question-bank/index'
-import { Route as DashboardIndexRouteImport } from './routes/dashboard/index'
-import { Route as CategorysIndexRouteImport } from './routes/categorys/index'
-import { Route as CalendarIndexRouteImport } from './routes/calendar/index'
+import { Route as ShellUsersIndexRouteImport } from './routes/_shell/users/index'
+import { Route as ShellThemesIndexRouteImport } from './routes/_shell/themes/index'
+import { Route as ShellSubthemesIndexRouteImport } from './routes/_shell/subthemes/index'
+import { Route as ShellQuizzesIndexRouteImport } from './routes/_shell/quizzes/index'
+import { Route as ShellQuestionsIndexRouteImport } from './routes/_shell/questions/index'
+import { Route as ShellQuestionBankIndexRouteImport } from './routes/_shell/question-bank/index'
+import { Route as ShellProfileIndexRouteImport } from './routes/_shell/profile/index'
+import { Route as ShellDashboardIndexRouteImport } from './routes/_shell/dashboard/index'
+import { Route as ShellCategorysIndexRouteImport } from './routes/_shell/categorys/index'
+import { Route as ShellCalendarIndexRouteImport } from './routes/_shell/calendar/index'
 import { Route as authSignUpIndexRouteImport } from './routes/(auth)/sign-up/index'
 import { Route as authSignOutIndexRouteImport } from './routes/(auth)/sign-out/index'
 import { Route as authSignInIndexRouteImport } from './routes/(auth)/sign-in/index'
 
+const ShellRouteRoute = ShellRouteRouteImport.update({
+  id: '/_shell',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const UsersIndexRoute = UsersIndexRouteImport.update({
+const ShellUsersIndexRoute = ShellUsersIndexRouteImport.update({
   id: '/users/',
   path: '/users/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => ShellRouteRoute,
 } as any)
-const ThemesIndexRoute = ThemesIndexRouteImport.update({
+const ShellThemesIndexRoute = ShellThemesIndexRouteImport.update({
   id: '/themes/',
   path: '/themes/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => ShellRouteRoute,
 } as any)
-const SettingsIndexRoute = SettingsIndexRouteImport.update({
-  id: '/settings/',
-  path: '/settings/',
-  getParentRoute: () => rootRouteImport,
+const ShellSubthemesIndexRoute = ShellSubthemesIndexRouteImport.update({
+  id: '/subthemes/',
+  path: '/subthemes/',
+  getParentRoute: () => ShellRouteRoute,
 } as any)
-const QuizzesIndexRoute = QuizzesIndexRouteImport.update({
+const ShellQuizzesIndexRoute = ShellQuizzesIndexRouteImport.update({
   id: '/quizzes/',
   path: '/quizzes/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => ShellRouteRoute,
 } as any)
-const QuestionsIndexRoute = QuestionsIndexRouteImport.update({
+const ShellQuestionsIndexRoute = ShellQuestionsIndexRouteImport.update({
   id: '/questions/',
   path: '/questions/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => ShellRouteRoute,
 } as any)
-const QuestionBankIndexRoute = QuestionBankIndexRouteImport.update({
+const ShellQuestionBankIndexRoute = ShellQuestionBankIndexRouteImport.update({
   id: '/question-bank/',
   path: '/question-bank/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => ShellRouteRoute,
 } as any)
-const DashboardIndexRoute = DashboardIndexRouteImport.update({
+const ShellProfileIndexRoute = ShellProfileIndexRouteImport.update({
+  id: '/profile/',
+  path: '/profile/',
+  getParentRoute: () => ShellRouteRoute,
+} as any)
+const ShellDashboardIndexRoute = ShellDashboardIndexRouteImport.update({
   id: '/dashboard/',
   path: '/dashboard/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => ShellRouteRoute,
 } as any)
-const CategorysIndexRoute = CategorysIndexRouteImport.update({
+const ShellCategorysIndexRoute = ShellCategorysIndexRouteImport.update({
   id: '/categorys/',
   path: '/categorys/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => ShellRouteRoute,
 } as any)
-const CalendarIndexRoute = CalendarIndexRouteImport.update({
+const ShellCalendarIndexRoute = ShellCalendarIndexRouteImport.update({
   id: '/calendar/',
   path: '/calendar/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => ShellRouteRoute,
 } as any)
 const authSignUpIndexRoute = authSignUpIndexRouteImport.update({
   id: '/(auth)/sign-up/',
@@ -91,109 +102,109 @@ const authSignInIndexRoute = authSignInIndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/calendar': typeof CalendarIndexRoute
-  '/categorys': typeof CategorysIndexRoute
-  '/dashboard': typeof DashboardIndexRoute
-  '/question-bank': typeof QuestionBankIndexRoute
-  '/questions': typeof QuestionsIndexRoute
-  '/quizzes': typeof QuizzesIndexRoute
-  '/settings': typeof SettingsIndexRoute
-  '/themes': typeof ThemesIndexRoute
-  '/users': typeof UsersIndexRoute
   '/sign-in': typeof authSignInIndexRoute
   '/sign-out': typeof authSignOutIndexRoute
   '/sign-up': typeof authSignUpIndexRoute
+  '/calendar': typeof ShellCalendarIndexRoute
+  '/categorys': typeof ShellCategorysIndexRoute
+  '/dashboard': typeof ShellDashboardIndexRoute
+  '/profile': typeof ShellProfileIndexRoute
+  '/question-bank': typeof ShellQuestionBankIndexRoute
+  '/questions': typeof ShellQuestionsIndexRoute
+  '/quizzes': typeof ShellQuizzesIndexRoute
+  '/subthemes': typeof ShellSubthemesIndexRoute
+  '/themes': typeof ShellThemesIndexRoute
+  '/users': typeof ShellUsersIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/calendar': typeof CalendarIndexRoute
-  '/categorys': typeof CategorysIndexRoute
-  '/dashboard': typeof DashboardIndexRoute
-  '/question-bank': typeof QuestionBankIndexRoute
-  '/questions': typeof QuestionsIndexRoute
-  '/quizzes': typeof QuizzesIndexRoute
-  '/settings': typeof SettingsIndexRoute
-  '/themes': typeof ThemesIndexRoute
-  '/users': typeof UsersIndexRoute
   '/sign-in': typeof authSignInIndexRoute
   '/sign-out': typeof authSignOutIndexRoute
   '/sign-up': typeof authSignUpIndexRoute
+  '/calendar': typeof ShellCalendarIndexRoute
+  '/categorys': typeof ShellCategorysIndexRoute
+  '/dashboard': typeof ShellDashboardIndexRoute
+  '/profile': typeof ShellProfileIndexRoute
+  '/question-bank': typeof ShellQuestionBankIndexRoute
+  '/questions': typeof ShellQuestionsIndexRoute
+  '/quizzes': typeof ShellQuizzesIndexRoute
+  '/subthemes': typeof ShellSubthemesIndexRoute
+  '/themes': typeof ShellThemesIndexRoute
+  '/users': typeof ShellUsersIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/calendar/': typeof CalendarIndexRoute
-  '/categorys/': typeof CategorysIndexRoute
-  '/dashboard/': typeof DashboardIndexRoute
-  '/question-bank/': typeof QuestionBankIndexRoute
-  '/questions/': typeof QuestionsIndexRoute
-  '/quizzes/': typeof QuizzesIndexRoute
-  '/settings/': typeof SettingsIndexRoute
-  '/themes/': typeof ThemesIndexRoute
-  '/users/': typeof UsersIndexRoute
+  '/_shell': typeof ShellRouteRouteWithChildren
   '/(auth)/sign-in/': typeof authSignInIndexRoute
   '/(auth)/sign-out/': typeof authSignOutIndexRoute
   '/(auth)/sign-up/': typeof authSignUpIndexRoute
+  '/_shell/calendar/': typeof ShellCalendarIndexRoute
+  '/_shell/categorys/': typeof ShellCategorysIndexRoute
+  '/_shell/dashboard/': typeof ShellDashboardIndexRoute
+  '/_shell/profile/': typeof ShellProfileIndexRoute
+  '/_shell/question-bank/': typeof ShellQuestionBankIndexRoute
+  '/_shell/questions/': typeof ShellQuestionsIndexRoute
+  '/_shell/quizzes/': typeof ShellQuizzesIndexRoute
+  '/_shell/subthemes/': typeof ShellSubthemesIndexRoute
+  '/_shell/themes/': typeof ShellThemesIndexRoute
+  '/_shell/users/': typeof ShellUsersIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/calendar'
-    | '/categorys'
-    | '/dashboard'
-    | '/question-bank'
-    | '/questions'
-    | '/quizzes'
-    | '/settings'
-    | '/themes'
-    | '/users'
     | '/sign-in'
     | '/sign-out'
     | '/sign-up'
+    | '/calendar'
+    | '/categorys'
+    | '/dashboard'
+    | '/profile'
+    | '/question-bank'
+    | '/questions'
+    | '/quizzes'
+    | '/subthemes'
+    | '/themes'
+    | '/users'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/calendar'
-    | '/categorys'
-    | '/dashboard'
-    | '/question-bank'
-    | '/questions'
-    | '/quizzes'
-    | '/settings'
-    | '/themes'
-    | '/users'
     | '/sign-in'
     | '/sign-out'
     | '/sign-up'
+    | '/calendar'
+    | '/categorys'
+    | '/dashboard'
+    | '/profile'
+    | '/question-bank'
+    | '/questions'
+    | '/quizzes'
+    | '/subthemes'
+    | '/themes'
+    | '/users'
   id:
     | '__root__'
     | '/'
-    | '/calendar/'
-    | '/categorys/'
-    | '/dashboard/'
-    | '/question-bank/'
-    | '/questions/'
-    | '/quizzes/'
-    | '/settings/'
-    | '/themes/'
-    | '/users/'
+    | '/_shell'
     | '/(auth)/sign-in/'
     | '/(auth)/sign-out/'
     | '/(auth)/sign-up/'
+    | '/_shell/calendar/'
+    | '/_shell/categorys/'
+    | '/_shell/dashboard/'
+    | '/_shell/profile/'
+    | '/_shell/question-bank/'
+    | '/_shell/questions/'
+    | '/_shell/quizzes/'
+    | '/_shell/subthemes/'
+    | '/_shell/themes/'
+    | '/_shell/users/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  CalendarIndexRoute: typeof CalendarIndexRoute
-  CategorysIndexRoute: typeof CategorysIndexRoute
-  DashboardIndexRoute: typeof DashboardIndexRoute
-  QuestionBankIndexRoute: typeof QuestionBankIndexRoute
-  QuestionsIndexRoute: typeof QuestionsIndexRoute
-  QuizzesIndexRoute: typeof QuizzesIndexRoute
-  SettingsIndexRoute: typeof SettingsIndexRoute
-  ThemesIndexRoute: typeof ThemesIndexRoute
-  UsersIndexRoute: typeof UsersIndexRoute
+  ShellRouteRoute: typeof ShellRouteRouteWithChildren
   authSignInIndexRoute: typeof authSignInIndexRoute
   authSignOutIndexRoute: typeof authSignOutIndexRoute
   authSignUpIndexRoute: typeof authSignUpIndexRoute
@@ -201,6 +212,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/_shell': {
+      id: '/_shell'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof ShellRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -208,68 +226,75 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/users/': {
-      id: '/users/'
+    '/_shell/users/': {
+      id: '/_shell/users/'
       path: '/users'
       fullPath: '/users'
-      preLoaderRoute: typeof UsersIndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof ShellUsersIndexRouteImport
+      parentRoute: typeof ShellRouteRoute
     }
-    '/themes/': {
-      id: '/themes/'
+    '/_shell/themes/': {
+      id: '/_shell/themes/'
       path: '/themes'
       fullPath: '/themes'
-      preLoaderRoute: typeof ThemesIndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof ShellThemesIndexRouteImport
+      parentRoute: typeof ShellRouteRoute
     }
-    '/settings/': {
-      id: '/settings/'
-      path: '/settings'
-      fullPath: '/settings'
-      preLoaderRoute: typeof SettingsIndexRouteImport
-      parentRoute: typeof rootRouteImport
+    '/_shell/subthemes/': {
+      id: '/_shell/subthemes/'
+      path: '/subthemes'
+      fullPath: '/subthemes'
+      preLoaderRoute: typeof ShellSubthemesIndexRouteImport
+      parentRoute: typeof ShellRouteRoute
     }
-    '/quizzes/': {
-      id: '/quizzes/'
+    '/_shell/quizzes/': {
+      id: '/_shell/quizzes/'
       path: '/quizzes'
       fullPath: '/quizzes'
-      preLoaderRoute: typeof QuizzesIndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof ShellQuizzesIndexRouteImport
+      parentRoute: typeof ShellRouteRoute
     }
-    '/questions/': {
-      id: '/questions/'
+    '/_shell/questions/': {
+      id: '/_shell/questions/'
       path: '/questions'
       fullPath: '/questions'
-      preLoaderRoute: typeof QuestionsIndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof ShellQuestionsIndexRouteImport
+      parentRoute: typeof ShellRouteRoute
     }
-    '/question-bank/': {
-      id: '/question-bank/'
+    '/_shell/question-bank/': {
+      id: '/_shell/question-bank/'
       path: '/question-bank'
       fullPath: '/question-bank'
-      preLoaderRoute: typeof QuestionBankIndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof ShellQuestionBankIndexRouteImport
+      parentRoute: typeof ShellRouteRoute
     }
-    '/dashboard/': {
-      id: '/dashboard/'
+    '/_shell/profile/': {
+      id: '/_shell/profile/'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ShellProfileIndexRouteImport
+      parentRoute: typeof ShellRouteRoute
+    }
+    '/_shell/dashboard/': {
+      id: '/_shell/dashboard/'
       path: '/dashboard'
       fullPath: '/dashboard'
-      preLoaderRoute: typeof DashboardIndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof ShellDashboardIndexRouteImport
+      parentRoute: typeof ShellRouteRoute
     }
-    '/categorys/': {
-      id: '/categorys/'
+    '/_shell/categorys/': {
+      id: '/_shell/categorys/'
       path: '/categorys'
       fullPath: '/categorys'
-      preLoaderRoute: typeof CategorysIndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof ShellCategorysIndexRouteImport
+      parentRoute: typeof ShellRouteRoute
     }
-    '/calendar/': {
-      id: '/calendar/'
+    '/_shell/calendar/': {
+      id: '/_shell/calendar/'
       path: '/calendar'
       fullPath: '/calendar'
-      preLoaderRoute: typeof CalendarIndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof ShellCalendarIndexRouteImport
+      parentRoute: typeof ShellRouteRoute
     }
     '/(auth)/sign-up/': {
       id: '/(auth)/sign-up/'
@@ -295,17 +320,39 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface ShellRouteRouteChildren {
+  ShellCalendarIndexRoute: typeof ShellCalendarIndexRoute
+  ShellCategorysIndexRoute: typeof ShellCategorysIndexRoute
+  ShellDashboardIndexRoute: typeof ShellDashboardIndexRoute
+  ShellProfileIndexRoute: typeof ShellProfileIndexRoute
+  ShellQuestionBankIndexRoute: typeof ShellQuestionBankIndexRoute
+  ShellQuestionsIndexRoute: typeof ShellQuestionsIndexRoute
+  ShellQuizzesIndexRoute: typeof ShellQuizzesIndexRoute
+  ShellSubthemesIndexRoute: typeof ShellSubthemesIndexRoute
+  ShellThemesIndexRoute: typeof ShellThemesIndexRoute
+  ShellUsersIndexRoute: typeof ShellUsersIndexRoute
+}
+
+const ShellRouteRouteChildren: ShellRouteRouteChildren = {
+  ShellCalendarIndexRoute: ShellCalendarIndexRoute,
+  ShellCategorysIndexRoute: ShellCategorysIndexRoute,
+  ShellDashboardIndexRoute: ShellDashboardIndexRoute,
+  ShellProfileIndexRoute: ShellProfileIndexRoute,
+  ShellQuestionBankIndexRoute: ShellQuestionBankIndexRoute,
+  ShellQuestionsIndexRoute: ShellQuestionsIndexRoute,
+  ShellQuizzesIndexRoute: ShellQuizzesIndexRoute,
+  ShellSubthemesIndexRoute: ShellSubthemesIndexRoute,
+  ShellThemesIndexRoute: ShellThemesIndexRoute,
+  ShellUsersIndexRoute: ShellUsersIndexRoute,
+}
+
+const ShellRouteRouteWithChildren = ShellRouteRoute._addFileChildren(
+  ShellRouteRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  CalendarIndexRoute: CalendarIndexRoute,
-  CategorysIndexRoute: CategorysIndexRoute,
-  DashboardIndexRoute: DashboardIndexRoute,
-  QuestionBankIndexRoute: QuestionBankIndexRoute,
-  QuestionsIndexRoute: QuestionsIndexRoute,
-  QuizzesIndexRoute: QuizzesIndexRoute,
-  SettingsIndexRoute: SettingsIndexRoute,
-  ThemesIndexRoute: ThemesIndexRoute,
-  UsersIndexRoute: UsersIndexRoute,
+  ShellRouteRoute: ShellRouteRouteWithChildren,
   authSignInIndexRoute: authSignInIndexRoute,
   authSignOutIndexRoute: authSignOutIndexRoute,
   authSignUpIndexRoute: authSignUpIndexRoute,

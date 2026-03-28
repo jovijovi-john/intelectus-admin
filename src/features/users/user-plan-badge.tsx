@@ -2,7 +2,7 @@ import { cn } from "@/shared/shadcn/lib/utils";
 
 import type { UserPlan } from "./user.types";
 
-const PLAN_LABEL: Record<UserPlan, string> = {
+export const PLAN_LABEL: Record<UserPlan, string> = {
   free: "Grátis",
   pro: "Pro",
 };

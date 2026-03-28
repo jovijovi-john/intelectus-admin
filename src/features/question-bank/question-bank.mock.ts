@@ -1,28 +1,33 @@
+import { QUESTION_BANK_LABELS } from "@/shared/data/anesthesiology-catalog";
+
 import type { QuestionBankItem } from "./question-bank.types";
+
+const [BANK_INTELLECTUS, BANK_SBA, BANK_INSTITUCIONAL] = QUESTION_BANK_LABELS;
 
 const MOCK_QUESTION_BANK: QuestionBankItem[] = [
   {
-    id: 1,
+    nome: BANK_INTELLECTUS,
     description:
-      "Conjunto de questões focado em raciocínio lógico e interpretação de textos. Inclui itens de múltipla escolha com quatro alternativas e questões dissertativas curtas.",
-    referenceYear: 2024,
-    startYear: 2020,
-    finishYear: 2024,
-  },
-  {
-    id: 2,
-    description:
-      "Banco voltado a matemática básica e geometria. As questões cobrem álgebra, funções, probabilidade e análise combinatória em nível médio.",
-    referenceYear: 2023,
-    startYear: 2018,
-    finishYear: 2023,
-  },
-  {
-    id: 3,
-    description: "Itens de física: cinemática, dinâmica, energia e ondas.",
-    referenceYear: 2025,
+      "Curadoria Intelectus com itens alinhados à taxonomia SBA (Pontos 8–14), com ênfase em farmacologia perioperatória e cenários de sala cirúrgica.",
+    referenceYear: 2026,
     startYear: 2022,
+    finishYear: 2026,
+  },
+  {
+    nome: BANK_SBA,
+    description:
+      "Banco voltado à prova anual de revisão SBA: questões comentadas por tema (cardio, respiratório, anestésicos IV e inalatórios).",
+    referenceYear: 2025,
+    startYear: 2019,
     finishYear: 2025,
+  },
+  {
+    nome: BANK_INSTITUCIONAL,
+    description:
+      "Casos clínicos institucionais (TEA e residência): vias aéreas difíceis, choque, bloqueios regionais e segurança do paciente.",
+    referenceYear: 2026,
+    startYear: 2024,
+    finishYear: 2026,
   },
 ];
 

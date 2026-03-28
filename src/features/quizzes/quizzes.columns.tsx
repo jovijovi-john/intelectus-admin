@@ -52,6 +52,15 @@ export function useQuizzesColumns(
         ),
       },
       {
+        id: "themes",
+        header: "Temas",
+        cell: ({ row }) => (
+          <p className="max-w-xs text-center text-zinc-800 line-clamp-2">
+            {row.original.themes.join(", ")}
+          </p>
+        ),
+      },
+      {
         accessorKey: "categories",
         header: "Categorias",
         cell: ({ row }) => (

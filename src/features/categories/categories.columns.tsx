@@ -16,7 +16,6 @@ export function useCategoriesColumns(
   const { onEdit, onDelete } = handlers;
   return useMemo(
     () => [
-      { accessorKey: "id", header: "ID" },
       { accessorKey: "name", header: "Nome" },
       {
         accessorKey: "description",

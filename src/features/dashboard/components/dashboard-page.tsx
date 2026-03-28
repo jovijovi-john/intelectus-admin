@@ -1,5 +1,5 @@
 import { BookOpen, CalendarX, ClipboardList, Crown, UserX, Users, Wallet } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 
 import type { DashboardDateRange } from "../types";
 import {
@@ -50,6 +50,13 @@ const subscriptionInsightIcons = [CalendarX, UserX, Wallet] as const;
 
 export function DashboardPage() {
   const [range, setRange] = useState<DashboardDateRange>(getDefaultDashboardRange);
+
+  const handleRangeChange = useCallback((next: DashboardDateRange) => {
+    setRange({
+      from: new Date(next.from.getTime()),
+      to: new Date(next.to.getTime()),
+    });
+  }, []);
 
   const kpis = useMemo(() => buildKpisForRange(range), [range]);
 
@@ -105,7 +112,7 @@ export function DashboardPage() {
 
   return (
     <div className="space-y-8 p-8">
-      <header className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
+      <header className="flex flex-col gap-4">
         <div className="space-y-1">
           <h1 className="text-2xl font-semibold tracking-tight text-foreground">
             Dashboard
@@ -115,7 +122,11 @@ export function DashboardPage() {
             reagem ao período selecionado.
           </p>
         </div>
-        <DashboardDateRangeFilter value={range} onChange={setRange} className="lg:max-w-xl" />
+        <DashboardDateRangeFilter
+          value={range}
+          onChange={handleRangeChange}
+          className="w-full"
+        />
       </header>
 
       <section

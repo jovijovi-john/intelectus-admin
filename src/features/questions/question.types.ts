@@ -18,7 +18,7 @@ export interface Question {
   /** ISO 8601 */
   createdAt: string;
   createdBy: string;
-  /** Nomes dos bancos de questões (ex.: Prova anual, Intelectus) */
+  /** Nomes dos bancos de questões (ex.: Banco Intelectus — anestesiologia) */
   questionBanks: string[];
   categories: string[];
   active: boolean;

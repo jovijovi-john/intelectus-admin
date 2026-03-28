@@ -16,7 +16,15 @@ export function useQuestionBankColumns(
   const { onEdit, onDelete } = handlers;
   return useMemo(
     () => [
-      { accessorKey: "id", header: "ID" },
+      {
+        accessorKey: "nome",
+        header: "Nome",
+        cell: ({ getValue }) => (
+          <p className="mx-auto max-w-xs text-center text-zinc-800">
+            {String(getValue() ?? "")}
+          </p>
+        ),
+      },
       {
         accessorKey: "description",
         header: "Descrição",

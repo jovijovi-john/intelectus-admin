@@ -58,11 +58,40 @@ export async function request<T>(
   return parseBody<T>(response);
 }
 
+async function requestForm<T>(path: string, form: FormData): Promise<T> {
+  const base = normalizeBaseUrl(import.meta.env.VITE_API_BASE_URL);
+  const url = joinUrl(base, path);
+
+  const response = await fetch(url, {
+    method: "POST",
+    body: form,
+  });
+
+  if (!response.ok) {
+    let message = `HTTP ${response.status}`;
+    try {
+      const text = await response.text();
+      if (text) message = text;
+    } catch {
+      /* ignore */
+    }
+    throw new HttpError(message, response.status);
+  }
+
+  return parseBody<T>(response);
+}
+
 export const httpClient = {
   get: <T>(path: string) => request<T>(path, { method: "GET" }),
   post: <T>(path: string, body?: unknown) =>
     request<T>(path, {
       method: "POST",
+      body: body !== undefined ? JSON.stringify(body) : undefined,
+    }),
+  postForm: <T>(path: string, form: FormData) => requestForm<T>(path, form),
+  patch: <T>(path: string, body?: unknown) =>
+    request<T>(path, {
+      method: "PATCH",
       body: body !== undefined ? JSON.stringify(body) : undefined,
     }),
 };

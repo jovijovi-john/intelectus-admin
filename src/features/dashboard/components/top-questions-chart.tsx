@@ -95,7 +95,16 @@ export function TopQuestionsChart({ data }: TopQuestionsChartProps) {
                   borderRadius: "0.5rem",
                   border: "1px solid var(--border)",
                   fontSize: "0.875rem",
-                  maxWidth: 320,
+                  /** Sobrescreve o `whiteSpace: nowrap` padrão do Recharts para textos longos. */
+                  whiteSpace: "normal",
+                  wordBreak: "break-word",
+                  overflowWrap: "break-word",
+                  maxWidth: "min(320px, calc(100vw - 2rem))",
+                }}
+                labelStyle={{
+                  marginBottom: 6,
+                  whiteSpace: "normal",
+                  wordBreak: "break-word",
                 }}
                 formatter={(value) => [
                   Number(value ?? 0).toLocaleString("pt-BR"),

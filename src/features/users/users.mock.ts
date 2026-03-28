@@ -3,7 +3,7 @@ import type { User } from "./user.types";
 const MOCK_USERS: User[] = [
   {
     id: "1",
-    name: "Ana Silva",
+    name: "Dra. Ana Silva",
     email: "ana.silva@example.com",
     plan: "free",
     cpf: "12345678901",
@@ -11,7 +11,7 @@ const MOCK_USERS: User[] = [
   },
   {
     id: "2",
-    name: "Bruno Costa",
+    name: "Dr. Bruno Costa",
     email: "bruno.costa@example.com",
     plan: "pro",
     cpf: "98765432100",
@@ -19,7 +19,7 @@ const MOCK_USERS: User[] = [
   },
   {
     id: "3",
-    name: "Carla Mendes",
+    name: "Dra. Carla Mendes",
     email: "carla.mendes@example.com",
     plan: "free",
     cpf: "11144477735",
@@ -27,7 +27,7 @@ const MOCK_USERS: User[] = [
   },
   {
     id: "4",
-    name: "Daniel Oliveira",
+    name: "Dr. Daniel Oliveira",
     email: "daniel.oliveira@example.com",
     plan: "pro",
     cpf: "52998224725",
@@ -35,7 +35,7 @@ const MOCK_USERS: User[] = [
   },
   {
     id: "5",
-    name: "Elena Ferreira",
+    name: "Dra. Elena Ferreira",
     email: "elena.ferreira@example.com",
     plan: "free",
     cpf: "39053344705",
@@ -43,7 +43,7 @@ const MOCK_USERS: User[] = [
   },
   {
     id: "6",
-    name: "Felipe Santos",
+    name: "Dr. Felipe Santos",
     email: "felipe.santos@example.com",
     plan: "pro",
     cpf: "86288366757",
@@ -51,7 +51,7 @@ const MOCK_USERS: User[] = [
   },
   {
     id: "7",
-    name: "Gabriela Lima",
+    name: "Dra. Gabriela Lima",
     email: "gabriela.lima@example.com",
     plan: "free",
     cpf: "19119119100",
@@ -59,7 +59,7 @@ const MOCK_USERS: User[] = [
   },
   {
     id: "8",
-    name: "Henrique Alves",
+    name: "Dr. Henrique Alves",
     email: "henrique.alves@example.com",
     plan: "pro",
     cpf: "24856374043",
@@ -67,7 +67,7 @@ const MOCK_USERS: User[] = [
   },
   {
     id: "9",
-    name: "Isabela Rocha",
+    name: "Dra. Isabela Rocha",
     email: "isabela.rocha@example.com",
     plan: "free",
     cpf: "08528372804",
@@ -75,7 +75,7 @@ const MOCK_USERS: User[] = [
   },
   {
     id: "10",
-    name: "João Pereira",
+    name: "Dr. João Pereira",
     email: "joao.pereira@example.com",
     plan: "pro",
     cpf: "33428373001",

@@ -1,6 +1,7 @@
 import type { ColumnDef } from "@tanstack/react-table";
 import { useMemo } from "react";
 
+import { ActiveBadge } from "@/shared/components/ActiveBadge";
 import { DataTableRowActions } from "@/shared/components/Table";
 
 import type { Theme } from "./theme.types";
@@ -16,7 +17,6 @@ export function useThemesColumns(
   const { onEdit, onDelete } = handlers;
   return useMemo(
     () => [
-      { accessorKey: "id", header: "ID" },
       { accessorKey: "name", header: "Nome" },
       {
         accessorKey: "description",
@@ -31,6 +31,20 @@ export function useThemesColumns(
         id: "categories",
         header: "Categorias",
         cell: ({ row }) => row.original.categories.join(", "),
+      },
+      {
+        id: "questionCount",
+        header: () => <span className="tabular-nums">Qtd. questões</span>,
+        cell: ({ row }) => (
+          <span className="tabular-nums text-zinc-800">
+            {row.original.questionCount}
+          </span>
+        ),
+      },
+      {
+        id: "active",
+        header: "Ativo",
+        cell: ({ row }) => <ActiveBadge active={row.original.active} />,
       },
       {
         id: "actions",

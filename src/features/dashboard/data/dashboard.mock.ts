@@ -1,4 +1,5 @@
 import type { QuestionBloomTag } from "@/features/questions/question.types";
+import { QUESTION_BANK_LABELS } from "@/shared/data/anesthesiology-catalog";
 
 import type {
   DashboardKpiSource,
@@ -78,33 +79,40 @@ export const newUsersByPlanMonthly: NewUsersByPlanPoint[] = [
 export const topPerformingQuestions: TopQuestionRow[] = [
   {
     id: "1",
-    title: "Funções do 1º grau — interpretação de gráfico",
+    title:
+      "Explique o papel do sistema nervoso autônomo na resposta hemodinâmica à laringoscopia.",
     answerCount: 12400,
   },
   {
     id: "2",
-    title: "Leis de Newton — exercícios combinados",
+    title: "Calcule o débito cardíaco a partir de FC e volume sistólico em um caso hipotético pós-operatório.",
     answerCount: 9820,
   },
   {
     id: "3",
-    title: "Célula eucariótica — organelas",
+    title:
+      "Compare complacência estática e dinâmica em ventilação mecânica com baixo Vt.",
     answerCount: 8750,
   },
   {
     id: "4",
-    title: "Revolução Francesa — causas e consequências",
+    title: "Proponha um esquema de TIVA com propofol e remifentanil para cirurgia de curta duração.",
     answerCount: 7430,
   },
-  { id: "5", title: "Frações algébricas — simplificação", answerCount: 6980 },
+  {
+    id: "5",
+    title:
+      "Interprete sinais precoces de toxicidade por anestésico local após bloqueio de plexo.",
+    answerCount: 6980,
+  },
 ];
 
 export const trendingThemes: TrendingThemeRow[] = [
-  { id: "t1", name: "Matemática", trendScore: 94 },
-  { id: "t2", name: "Física", trendScore: 88 },
-  { id: "t3", name: "Biologia", trendScore: 76 },
-  { id: "t4", name: "História", trendScore: 71 },
-  { id: "t5", name: "Química orgânica", trendScore: 65 },
+  { id: "t1", name: "Ponto 13 — inalatórios e CAM (MAC)", trendScore: 94 },
+  { id: "t2", name: "Ponto 12 — anestésicos venosos e opioides", trendScore: 88 },
+  { id: "t3", name: "Ponto 10 — mecânica e ventilação pulmonar", trendScore: 76 },
+  { id: "t4", name: "Ponto 9 — cardiocirculatório", trendScore: 71 },
+  { id: "t5", name: "Ponto 14 — anestésicos locais e bloqueios", trendScore: 65 },
 ];
 
 /** Total de referência para distribuição Bloom (soma das fatias). */
@@ -124,19 +132,20 @@ export const questionsBloomDistributionBase: {
 ];
 
 /**
- * Distribuição de usuários Premium por categoria de interesse (soma ≈ base KPI premium).
+ * Distribuição de usuários Premium por estágio de residência (soma ≈ base KPI premium).
  */
 export const premiumUsersByCategoryBase: {
   id: string;
   name: string;
   count: number;
 }[] = [
-  { id: "pc1", name: "Medicina", count: 980 },
-  { id: "pc2", name: "Tecnologia", count: 720 },
-  { id: "pc3", name: "Engenharia", count: 610 },
-  { id: "pc4", name: "Direito", count: 340 },
-  { id: "pc5", name: "Outras áreas", count: 559 },
+  { id: "pc1", name: "TEA/TSA", count: 420 },
+  { id: "pc2", name: "R1", count: 980 },
+  { id: "pc3", name: "R2", count: 1150 },
+  { id: "pc4", name: "R3", count: 659 },
 ];
+
+const [BANK_QB1, BANK_QB2, BANK_QB3] = QUESTION_BANK_LABELS;
 
 /** Contagem de questões por banco de origem (escala com o período). */
 export const questionsByQuestionBankBase: {
@@ -144,11 +153,9 @@ export const questionsByQuestionBankBase: {
   name: string;
   count: number;
 }[] = [
-  { id: "qb1", name: "Prova anual", count: 2200 },
-  { id: "qb2", name: "Intelectus", count: 3800 },
-  { id: "qb3", name: "Outro banco de questões", count: 1400 },
-  { id: "qb4", name: "Banco aleatório", count: 900 },
-  { id: "qb5", name: "Banco de questões", count: 1700 },
+  { id: "qb1", name: BANK_QB1, count: 3800 },
+  { id: "qb2", name: BANK_QB2, count: 2800 },
+  { id: "qb3", name: BANK_QB3, count: 1940 },
 ];
 
 /**
@@ -165,31 +172,34 @@ export const subscriptionInsightsBase = {
 export const questionHitMissBase: QuestionHitMissRow[] = [
   {
     id: "q1",
-    title: "Funções do 1º grau — interpretação de gráfico",
+    title:
+      "Explique o papel do sistema nervoso autônomo na resposta hemodinâmica à laringoscopia.",
     correctCount: 9800,
     wrongCount: 1200,
   },
   {
     id: "q2",
-    title: "Leis de Newton — exercícios combinados",
+    title: "Calcule o débito cardíaco a partir de FC e volume sistólico em um caso hipotético pós-operatório.",
     correctCount: 7200,
     wrongCount: 2100,
   },
   {
     id: "q3",
-    title: "Célula eucariótica — organelas",
+    title:
+      "Compare complacência estática e dinâmica em ventilação mecânica com baixo Vt.",
     correctCount: 8100,
     wrongCount: 950,
   },
   {
     id: "q4",
-    title: "Revolução Francesa — causas e consequências",
+    title: "Proponha um esquema de TIVA com propofol e remifentanil para cirurgia de curta duração.",
     correctCount: 5600,
     wrongCount: 1800,
   },
   {
     id: "q5",
-    title: "Frações algébricas — simplificação",
+    title:
+      "Interprete sinais precoces de toxicidade por anestésico local após bloqueio de plexo.",
     correctCount: 6100,
     wrongCount: 2400,
   },
@@ -197,76 +207,101 @@ export const questionHitMissBase: QuestionHitMissRow[] = [
 
 /** Base para gráficos de acertos/erros por tema. */
 export const themeHitMissBase: ThemeHitMissRow[] = [
-  { id: "th1", name: "Matemática", correctCount: 45200, wrongCount: 8900 },
-  { id: "th2", name: "Física", correctCount: 32100, wrongCount: 10200 },
-  { id: "th3", name: "Biologia", correctCount: 28900, wrongCount: 5600 },
-  { id: "th4", name: "História", correctCount: 19800, wrongCount: 7200 },
-  { id: "th5", name: "Química", correctCount: 25600, wrongCount: 9100 },
+  {
+    id: "th1",
+    name: "Ponto 13 — Anestésicos inalatórios e CAM (MAC)",
+    correctCount: 45200,
+    wrongCount: 8900,
+  },
+  {
+    id: "th2",
+    name: "Ponto 12 — Anestésicos venosos e opioides",
+    correctCount: 32100,
+    wrongCount: 10200,
+  },
+  {
+    id: "th3",
+    name: "Ponto 10 — Mecânica e ventilação pulmonar",
+    correctCount: 28900,
+    wrongCount: 5600,
+  },
+  {
+    id: "th4",
+    name: "Ponto 9 — Cardiocirculatório: débito e hemodinâmica",
+    correctCount: 19800,
+    wrongCount: 7200,
+  },
+  {
+    id: "th5",
+    name: "Ponto 14 — Anestésicos locais e bloqueios",
+    correctCount: 25600,
+    wrongCount: 9100,
+  },
 ];
 
 export const recentStudents: DashboardRecentStudent[] = [
   {
     id: "s1",
-    name: "Ana Costa",
+    name: "Dra. Ana Costa",
     email: "ana.costa@email.com",
     plan: "pro",
     registeredAt: "2026-03-26",
-    category: "Medicina",
+    category: "R2",
   },
   {
     id: "s2",
-    name: "Bruno Lima",
+    name: "Dr. Bruno Lima",
     email: "bruno.lima@email.com",
     plan: "free",
     registeredAt: "2026-03-25",
-    category: "Tecnologia",
+    category: "R1",
   },
   {
     id: "s3",
-    name: "Carla Mendes",
+    name: "Dra. Carla Mendes",
     email: "carla.m@email.com",
     plan: "pro",
     registeredAt: "2026-03-24",
-    category: "Engenharia",
+    category: "R3",
   },
   {
     id: "s4",
-    name: "Diego Souza",
+    name: "Dr. Diego Souza",
     email: "diego.s@email.com",
     plan: "free",
     registeredAt: "2026-03-23",
-    category: "Direito",
+    category: "TEA/TSA",
   },
   {
     id: "s5",
-    name: "Elena Rodrigues",
+    name: "Dra. Elena Rodrigues",
     email: "elena.r@email.com",
     plan: "pro",
     registeredAt: "2026-03-22",
-    category: "Medicina",
+    category: "R1",
   },
   {
     id: "s6",
-    name: "Felipe Rocha",
+    name: "Dr. Felipe Rocha",
     email: "felipe.r@email.com",
     plan: "free",
     registeredAt: "2026-03-21",
-    category: "Administração",
+    category: "R2",
   },
   {
     id: "s7",
-    name: "Gabriela Nunes",
+    name: "Dra. Gabriela Nunes",
     email: "gabi.nunes@email.com",
     plan: "pro",
     registeredAt: "2026-02-15",
-    category: "Enfermagem",
+    category: "R3",
   },
   {
     id: "s8",
-    name: "Henrique Alves",
+    name: "Dr. Henrique Alves",
     email: "henrique.a@email.com",
     plan: "free",
     registeredAt: "2026-01-10",
-    category: "Tecnologia",
+    category: "TEA/TSA",
   },
 ];

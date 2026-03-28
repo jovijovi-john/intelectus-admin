@@ -1,15 +1,15 @@
-import { Button } from "@/shared/shadcn/components/ui/button";
-import { createFileRoute } from "@tanstack/react-router";
+import { isAuthenticated, LoginPage } from "@/features/auth";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
+  beforeLoad: () => {
+    if (isAuthenticated()) {
+      throw redirect({ to: "/dashboard" });
+    }
+  },
   component: Index,
 });
 
 function Index() {
-  return (
-    <div className="p-2 bg-red-500">
-      <h3>Welcome Home!</h3>
-      <Button className="bg-red-500">Flamengo</Button>
-    </div>
-  );
+  return <LoginPage />;
 }
