@@ -2,7 +2,7 @@ import { cn } from "@/shared/shadcn/lib/utils";
 
 import type { QuestionBloomTag } from "./question.types";
 
-const BLOOM_LABEL: Record<QuestionBloomTag, string> = {
+export const BLOOM_LABEL: Record<QuestionBloomTag, string> = {
   remember: "Lembrar",
   understand: "Entender",
   apply: "Aplicar",

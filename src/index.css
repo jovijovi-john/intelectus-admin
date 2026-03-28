@@ -44,6 +44,20 @@ html,
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
+  --color-chart-pie-1: var(--chart-pie-1);
+  --color-chart-pie-2: var(--chart-pie-2);
+  --color-chart-pie-3: var(--chart-pie-3);
+  --color-chart-pie-4: var(--chart-pie-4);
+  --color-chart-pie-5: var(--chart-pie-5);
+  --color-chart-pie-6: var(--chart-pie-6);
+  --color-chart-pie-7: var(--chart-pie-7);
+  --color-chart-pie-8: var(--chart-pie-8);
+  --color-plan-free-bg: var(--plan-free-bg);
+  --color-plan-free-fg: var(--plan-free-fg);
+  --color-plan-free-border: var(--plan-free-border);
+  --color-plan-premium-from: var(--plan-premium-from);
+  --color-plan-premium-to: var(--plan-premium-to);
+  --color-plan-premium-fg: var(--plan-premium-fg);
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
@@ -110,6 +124,24 @@ html,
   --chart-4: #7AC943;
   --chart-5: #B61111;
 
+  /* Donuts / pizzas do dashboard (matizes distintos: azul, verde, âmbar, vermelho, violeta, …) */
+  --chart-pie-1: #2563eb;
+  --chart-pie-2: #16a34a;
+  --chart-pie-3: #ca8a04;
+  --chart-pie-4: #dc2626;
+  --chart-pie-5: #7c3aed;
+  --chart-pie-6: #ea580c;
+  --chart-pie-7: #0891b2;
+  --chart-pie-8: #db2777;
+
+  /* Planos (badges Grátis / Premium) */
+  --plan-free-bg: #d1fae5;
+  --plan-free-fg: #065f46;
+  --plan-free-border: #6ee7b7;
+  --plan-premium-from: #5b21b6;
+  --plan-premium-to: #a855f7;
+  --plan-premium-fg: #ffffff;
+
   /* Sidebar */
   --sidebar: #FFFFFF;
   --sidebar-foreground: #052B29;
@@ -146,6 +178,20 @@ html,
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
+  --chart-pie-1: oklch(0.62 0.2 264);
+  --chart-pie-2: oklch(0.72 0.17 145);
+  --chart-pie-3: oklch(0.75 0.15 85);
+  --chart-pie-4: oklch(0.63 0.22 25);
+  --chart-pie-5: oklch(0.65 0.22 290);
+  --chart-pie-6: oklch(0.7 0.19 55);
+  --chart-pie-7: oklch(0.68 0.14 200);
+  --chart-pie-8: oklch(0.65 0.22 340);
+  --plan-free-bg: oklch(0.35 0.08 160);
+  --plan-free-fg: oklch(0.92 0.05 160);
+  --plan-free-border: oklch(0.45 0.1 160);
+  --plan-premium-from: oklch(0.42 0.2 290);
+  --plan-premium-to: oklch(0.55 0.22 300);
+  --plan-premium-fg: oklch(0.99 0 0);
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
   --sidebar-primary: oklch(0.488 0.243 264.376);
@@ -163,5 +209,19 @@ html,
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* react-day-picker: foco alinhado ao ring do tema (mês/ano e dias) */
+@layer components {
+  .rdp-root .rdp-dropdown:focus-visible ~ .rdp-caption_label {
+    outline: none;
+    border-radius: var(--radius-md);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring) 45%, transparent);
+  }
+
+  .rdp-root .rdp-day_button:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring) 45%, transparent);
   }
 }

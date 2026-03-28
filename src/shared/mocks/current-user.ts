@@ -5,7 +5,7 @@ export interface CurrentUser {
 }
 
 export const mockCurrentUser: CurrentUser = {
-  username: "Leanjoelson",
+  username: "Cyro",
   role: "Admin",
   avatarUrl: null,
 };

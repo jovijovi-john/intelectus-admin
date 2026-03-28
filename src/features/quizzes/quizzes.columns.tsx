@@ -46,7 +46,7 @@ export function useQuizzesColumns(
         id: "questionBanks",
         header: "Bancos",
         cell: ({ row }) => (
-          <p className="min-w-48 max-w-md text-left text-zinc-800">
+          <p className="min-w-48 max-w-md text-center text-zinc-800">
             {row.original.questionBanks.join(", ")}
           </p>
         ),
@@ -55,7 +55,7 @@ export function useQuizzesColumns(
         accessorKey: "categories",
         header: "Categorias",
         cell: ({ row }) => (
-          <p className="max-w-xs text-left text-zinc-800 line-clamp-2">
+          <p className="max-w-xs text-center text-zinc-800 line-clamp-2">
             {row.original.categories.join(", ")}
           </p>
         ),

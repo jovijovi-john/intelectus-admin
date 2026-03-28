@@ -8,15 +8,17 @@ const PLAN_LABEL: Record<UserPlan, string> = {
 };
 
 const PLAN_CLASS: Record<UserPlan, string> = {
-  free: "border border-border bg-muted text-muted-foreground",
-  pro: "border border-primary/20 bg-primary/10 text-primary",
+  free:
+    "border border-plan-free-border bg-plan-free-bg text-plan-free-fg shadow-sm",
+  pro:
+    "border border-transparent bg-gradient-to-r from-plan-premium-from to-plan-premium-to text-plan-premium-fg shadow-sm ring-1 ring-white/20",
 };
 
 export function UserPlanBadge({ plan }: { plan: UserPlan }) {
   return (
     <span
       className={cn(
-        "inline-flex rounded-full px-2 py-0.5 text-xs font-medium",
+        "inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold tracking-tight",
         PLAN_CLASS[plan]
       )}
     >
